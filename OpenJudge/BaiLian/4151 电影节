@@ -13,19 +13,24 @@ struct Temp{
     }
 
 
-}tmp[100];
+}tmp[101];
 
 int main()
 {
     int n;
-    cin>>n;
-    int m;
+    while(cin>>n)
+    {
+        if(n==0)
+        {
+            break;
+        }
+        int m;
     for(int i=0;i<n;i++)
     {
         cin>>tmp[i].begtime>>tmp[i].endtime;
 
     }
-    cin>>m;
+
     sort(tmp,tmp+n);
     int totalnum=1;
     int j=0;
@@ -33,7 +38,7 @@ int main()
     {
 
         //printf("%d %d ",tmp[i].begtime,tmp[i].endtime);
-        if(tmp[j].endtime<tmp[i].begtime)
+        if(tmp[j].endtime<=tmp[i].begtime)
         {
             j=i;
             totalnum++;
@@ -42,8 +47,16 @@ int main()
 
         }
     }
+    if(n==0)
+    {
+        printf("0\n");
+    }else
+    {
+       printf("%d\n",totalnum);
+    }
 
-    printf("%d",totalnum);
+    }
+
 
     return 0;
 }
