@@ -1,0 +1,49 @@
+#include<iostream>
+#include<cstdio>
+#include<algorithm>
+using namespace std;
+
+struct Temp{
+    int begtime;
+    int endtime;
+    bool operator < (const Temp &c){
+
+        return endtime<c.endtime;
+
+    }
+
+
+}tmp[100];
+
+int main()
+{
+    int n;
+    cin>>n;
+    int m;
+    for(int i=0;i<n;i++)
+    {
+        cin>>tmp[i].begtime>>tmp[i].endtime;
+
+    }
+    cin>>m;
+    sort(tmp,tmp+n);
+    int totalnum=1;
+    int j=0;
+    for(int i=1;i<n;i++)
+    {
+
+        //printf("%d %d ",tmp[i].begtime,tmp[i].endtime);
+        if(tmp[j].endtime<tmp[i].begtime)
+        {
+            j=i;
+            totalnum++;
+        }else
+        {
+
+        }
+    }
+
+    printf("%d",totalnum);
+
+    return 0;
+}
